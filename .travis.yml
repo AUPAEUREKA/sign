@@ -1,3 +1,10 @@
 language: php
-php : 
+php: 
   - 7.2
+
+before_script:
+- wget https://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -0 php-cs-fixer-v2
+- chmod a+x php-cs-fixer 
+
+script:
+- ./php-cs-fixer fix-src --rules=@Symfony --diff --dry-run -vvv
